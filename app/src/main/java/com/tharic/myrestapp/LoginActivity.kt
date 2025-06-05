@@ -1,5 +1,6 @@
 package com.tharic.myrestapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -31,12 +32,19 @@ class LoginActivity : AppCompatActivity() {
             if(username==nomeS && password==passwordC){
                 val mioToast = Toast.makeText(this, "Login avvenuto!", Toast.LENGTH_LONG)
                 mioToast.show()
+
+                intent()
             }
             else{
                 val mioToast = Toast.makeText(this, "Accesso negato!", Toast.LENGTH_LONG)
                 mioToast.show()
             }
         }
+    }
+
+    private fun intent(){
+        val mioIntent = Intent(this, MenuActivity::class.java)
+        startActivity(mioIntent)
     }
 
     private fun sha256(input: String): String {
